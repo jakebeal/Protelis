@@ -1,0 +1,3 @@
+// Should give a parse error
+
+rep(val <- nonsense) { val }

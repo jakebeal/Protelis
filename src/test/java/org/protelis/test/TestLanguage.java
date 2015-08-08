@@ -272,6 +272,11 @@ public class TestLanguage {
 	}
 
 	@Test
+	public void testRep03() {
+		testError("/rep03.pt",IllegalArgumentException.class);
+	}
+
+	@Test
 	public void testSum() {
 		testFile("/sum.pt");
 	}
@@ -406,4 +411,15 @@ public class TestLanguage {
 		}
 		return vm.getCurrentValue();
 	}
+
+	@SuppressWarnings("rawtypes")
+	private static void testError(final String file, final Class expected) {
+		try {
+			runProgram(file, 1);
+		} catch (Exception e) {
+			assert (expected.isInstance(e));
+		}
+		fail("Expected exception, but no exception occurrred.");
+	}
+
 }
