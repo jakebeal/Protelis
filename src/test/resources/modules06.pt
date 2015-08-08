@@ -1,0 +1,7 @@
+// Tests references to private functions from within a module
+// EXPECTED_RESULT: 6
+module modules06
+
+import package2:test:crossref02
+
+3+foo()

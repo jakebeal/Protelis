@@ -227,6 +227,22 @@ public class TestLanguage {
 		testFile("/modules05.pt");
 	}
 
+	/**
+	 * Make sure that modules can call their own private functions from an imported public function.
+	 */
+	@Test
+	public void testModules06() {
+		testFile("/modules06.pt");
+	}
+
+	/**
+	 * Make sure that module private functions can't be accessed from outside of the module.
+	 */
+	@Test
+	public void testModules07() {
+		testError("/modules07.pt", IllegalArgumentException.class);
+	}
+
 	@Test
 	public void testMux01() {
 		testFileWithMultipleRuns("/mux01.pt");
@@ -271,9 +287,12 @@ public class TestLanguage {
 		}
 	}
 
+	/**
+	 * Make sure that rep checks to ensure its initialization variable actually exists.
+	 */
 	@Test
 	public void testRep03() {
-		testError("/rep03.pt",IllegalArgumentException.class);
+		testError("/rep03.pt", IllegalArgumentException.class);
 	}
 
 	@Test
@@ -418,6 +437,7 @@ public class TestLanguage {
 			runProgram(file, 1);
 		} catch (Exception e) {
 			assert (expected.isInstance(e));
+			return;
 		}
 		fail("Expected exception, but no exception occurrred.");
 	}

@@ -1,0 +1,9 @@
+module package2:test:crossref02
+
+def bar() {
+	1
+}
+
+public def foo() {
+	2+bar()
+}

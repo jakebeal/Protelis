@@ -1,0 +1,6 @@
+// Tests references to private functions from outside of a module, should give an error
+module modules07
+
+//import package2:test:crossref02
+
+bar()
