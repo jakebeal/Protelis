@@ -375,6 +375,14 @@ public class TestLanguage {
 		testFileWithExplicitResult("/unary02.pt", -Math.PI);
 	}
 
+	/**
+	 * Make sure that variable are checked to ensure that they actually exist.
+	 */
+	@Test
+	public void testVariable() {
+		testError("/variable.pt", IllegalArgumentException.class);
+	}
+
 	private static void testFileWithExplicitResult(final String file, final Object expectedResult) {
 		testFile(file, 1, expectedResult);
 	}
